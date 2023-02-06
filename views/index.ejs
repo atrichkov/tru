@@ -7,25 +7,30 @@
   <link rel="stylesheet" href="/static/custom.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid ml-5">
         <div class="row">
             <h1 class="text-center">Wemcome to tru</h1>
         </div>
         <div class="row">
             <div class="col-sm">
                 <video id="videoContainer"></video>
+                <div class="row">
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-success" id="startCam">Start camera</button>
+                    </div>
+                    <div class="col-sm align-items-right">
+                        <form action="/save" method="POST" class="float-right">
+                            <button type="button" class="btn btn-primary" id="snap" disabled>Make it true</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="col-sm">
-                <canvas id="canvas" width="320" height="240"></canvas>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <button type="button" class="btn btn-success" id="startCam">Start camera</button>
-                <button type="button" class="btn btn-primary" id="snap" disabled>Snap</button>
+                <canvas id="canvas" width="800" height="480"></canvas>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/static/main.js"></script>
 </body>
 </html>

@@ -36,8 +36,20 @@ startCameraButton.addEventListener("click", () => {
 
 snapButton.addEventListener("click", () => {
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-    const imageData = canvas.toDataURL('image/jpeg');
+    const imageData = canvas.toDataURL('image/jpeg', '1.0');
 
     // data url of the image
     console.debug(imageData);
+
+    axios.post('/save', {
+        params: {
+            url: imageData
+        }
+    })
+    .then((response) => {
+        alert(response.data)
+    })
+    .catch((err) => {
+        console.debug(err);
+    })
 })
